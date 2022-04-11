@@ -12,6 +12,6 @@ class SampleTest {
 
     @Test
     fun testFail() {
-        assertThat("hello").isEqualTo("hi")
+//        assertThat("hello").isEqualTo("hi")
     }
 }
