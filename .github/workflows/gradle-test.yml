@@ -16,7 +16,6 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +31,7 @@ jobs:
       with:
         arguments: build
 
-    - name: Run the Gradle package task
+    - name: Test With Gradle
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
       with:
-        arguments: -b ci.gradle package
+        arguments: test
