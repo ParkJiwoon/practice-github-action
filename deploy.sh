@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY="/home/ec2-user"
+REPOSITORY="/home/ubuntu"
 PROJECT_NAME="app"
 
 # 현재 구동 중인 애플리케이션 pid 확인
