@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+
+files:
+  - source:  /
+    destination: /home/ubuntu/github_action
+    overwrite: yes
+
+hooks:
+  ApplicationStart:
+    - location: deploy.sh
+      timeout: 60
+      runas: ubuntu
