@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source:  /
-    destination: /home/ubuntu/spring-boot-demo
+    destination: /home/ec2-user/app
     overwrite: yes
 
 permissions:
