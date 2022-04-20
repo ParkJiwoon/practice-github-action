@@ -1,13 +1,27 @@
 #!/bin/bash
 
-# docker image 빌드
-docker build -t springboot/sample .
+REPOSITORY = /home/ec2-user
+PROJECT_NAME = app
 
-# 기존에 떠 있는 도커 컨테이너 종료
-docker rm -f codedeploy
+# 현재 구동 중인 애플리케이션 pid 확인
+CURRENT_PID = $(pgrep -fl $PROJECT_NAME | grep java | awk '{print $1}')
 
-# 도커 이미지 삭제
-docker rmi springboot/sample
+# 프로세스가 켜져 있으면 죽이기
+if [ -z "$CURRENT_PID" ]; then
+  ehco "> 현재 구동 중인 애플리케이션이 없으므로 종료하지 않습니다."
+else
+  kill -15 $CURRENT_PID
+  sleep 5
+fi
 
-# docker 이미지 실행
-docker run -d --name codedeploy -p 8080:8080 springboot/sample
+# build 파일 복사
+cp $REPOSITORY/build/libs/*.jar $REPOSITORY/
+
+# jar 파일 찾기
+JAR_FILE = $(ls -tr $REPOSITORY/*.jar | tail -n 1)
+
+# jar 파일에 실행 권한 추가
+chmod +x $JAR_FILE
+
+# jar 파일 실행
+nohup java -jar $JAR_FILE > $REPOSITORY/nohup.out 2>&1 &
