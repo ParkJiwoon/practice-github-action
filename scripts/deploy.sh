@@ -1,8 +1,7 @@
 #!/bin/bash
 
-PROJECT_NAME="spring-webapp"
-JAR_FILE="$PROJECT_NAME.jar"
-#PROJECT_ROOT="/home/ubuntu/app"
+PROJECT_ROOT="/home/ubuntu/app"
+JAR_FILE="$PROJECT_ROOT/spring-webapp.jar"
 #JAR_FILE="app.jar"
 #
 ## 현재 구동 중인 애플리케이션 pid 확인
@@ -16,7 +15,7 @@ JAR_FILE="$PROJECT_NAME.jar"
 
 # build 파일 복사
 echo "> 파일 복사" >> success_deploy.log
-cp ./build/libs/*.jar $JAR_FILE
+cp $PROJECT_ROOT/build/libs/*.jar $JAR_FILE
 
 # jar 파일 실행
 echo "> 파일 실행" >> success_deploy.log
