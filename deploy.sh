@@ -18,7 +18,7 @@ fi
 cp ./build/libs/*.jar "$PROJECT_NAME.jar"
 
 # jar 파일
-JAR_FILE="$REPOSITORY$PROJECT_NAME.jar"
+JAR_FILE="$REPOSITORY/$PROJECT_NAME.jar"
 
 # jar 파일 실행
 nohup java -jar $JAR_FILE > ./nohup.out 2>&1 &
