@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PROJECT_NAME="spring-webapp"
+JAR_FILE="$PROJECT_NAME.jar"
 #PROJECT_ROOT="/home/ubuntu/app"
 #JAR_FILE="app.jar"
 #
@@ -14,11 +16,11 @@
 
 # build 파일 복사
 echo "> 파일 복사" >> susccess_deploy.log
-cp ./build/libs/*.jar app.jar
+cp ./build/libs/*.jar $JAR_FILE
 
 # jar 파일 실행
 echo "> 파일 실행" >> susccess_deploy.log
-nohup java -jar app.jar &
+nohup java -jar $JAR_FILE &
 
 CURRENT_PID=$(pgrep -f $JAR_FILE)
 echo "> 실행된 프로세스 아이디 $CURRENT_PID" >> susccess_deploy.log
