@@ -22,4 +22,4 @@ nohup java -jar $PROJECT_ROOT/$JAR_FILE &
 
 sleep 3
 
-echo "> 배포 완료 $(pgrep -f $JAR_FILE)" >> ./error_deploy.log
+echo "> 배포 완료" >> ./error_deploy.log
