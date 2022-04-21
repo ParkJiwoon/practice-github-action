@@ -15,12 +15,12 @@ JAR_FILE="$PROJECT_NAME.jar"
 #fi
 
 # build 파일 복사
-echo "> 파일 복사" >> susccess_deploy.log
+echo "> 파일 복사" >> success_deploy.log
 cp ./build/libs/*.jar $JAR_FILE
 
 # jar 파일 실행
-echo "> 파일 실행" >> susccess_deploy.log
+echo "> 파일 실행" >> success_deploy.log
 nohup java -jar $JAR_FILE &
 
 CURRENT_PID=$(pgrep -f $JAR_FILE)
-echo "> 실행된 프로세스 아이디 $CURRENT_PID" >> susccess_deploy.log
+echo "> 실행된 프로세스 아이디 $CURRENT_PID" >> success_deploy.log
