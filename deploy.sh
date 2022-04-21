@@ -18,4 +18,4 @@ fi
 cp ./build/libs/*.jar $JAR_FILE
 
 # jar 파일 실행
-nohup java -jar $JAR_FILE &
+nohup java -jar $JAR_FILE --server.port=8081 &
