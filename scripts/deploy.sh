@@ -19,7 +19,3 @@ cp $PROJECT_ROOT/build/libs/*.jar $PROJECT_ROOT/$JAR_FILE
 
 # jar 파일 실행
 nohup java -jar $PROJECT_ROOT/$JAR_FILE &
-
-sleep 3
-
-echo "> 배포 완료" >> ./error_deploy.log
