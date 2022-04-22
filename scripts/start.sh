@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROJECT_ROOT="/home/ubuntu/app"
 JAR_FILE="$PROJECT_ROOT/spring-webapp.jar"
@@ -6,17 +6,6 @@ JAR_FILE="$PROJECT_ROOT/spring-webapp.jar"
 APP_LOG="$PROJECT_ROOT/application.log"
 ERROR_LOG="$PROJECT_ROOT/error.log"
 DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
-
-#JAR_FILE="app.jar"
-#
-## 현재 구동 중인 애플리케이션 pid 확인
-#CURRENT_PID=$(pgrep -f $JAR_FILE)
-#
-## 프로세스가 켜져 있으면 죽이기
-#if [ -z $CURRENT_PID ]; then
-#else
-#  kill -15 $CURRENT_PID
-#fi
 
 # build 파일 복사
 echo "> 파일 복사" >> $DEPLOY_LOG
