@@ -9,4 +9,9 @@ class SampleTest {
     fun testSuccess() {
         assertThat("hello").isEqualTo("hello")
     }
+
+    @Test
+    fun testFail() {
+        assertThat("hello").isEqualTo("hi")
+    }
 }
