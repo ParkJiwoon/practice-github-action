@@ -3,7 +3,7 @@ name: Deploy to Amazon ECS
 on:
   push:
     branches:
-      - main
+      - develop
 
 env:
   AWS_REGION: ap-northeast-2                  # set this to your preferred AWS region, e.g. us-west-1
@@ -36,6 +36,9 @@ jobs:
       with:
         arguments: clean build -x test
 
+    - name: Copy Jar file
+      run: cp ./build/libs/*.jar ./deploy/spring-webapp.jar
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -49,7 +52,7 @@ jobs:
           --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
           --ignore-hidden-files \
           --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
-          --source .
+          --source ./deploy
 
     - name: Code Deploy to AWS EC2 by S3
       run: |
